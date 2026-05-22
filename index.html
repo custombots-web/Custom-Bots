@@ -21,10 +21,10 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:4px;}
 
-
+/* ── ANIMATED BG CANVAS ── */
 #bgCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.55;}
 
-
+/* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;width:100%;z-index:500;
   height:58px;display:flex;align-items:center;justify-content:space-between;
@@ -59,7 +59,7 @@ nav{
 .nav-dc:hover{background:#4752c4;}
 .nav-dc svg{width:14px;height:14px;fill:white;}
 
-
+/* hamburger for mobile */
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
 .ham span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.2s;}
 .mobile-menu{display:none;position:fixed;top:58px;left:0;width:100%;background:rgba(8,8,8,0.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);z-index:499;padding:12px 16px;flex-direction:column;gap:4px;}
@@ -70,15 +70,15 @@ nav{
   .mobile-menu.open{display:flex;}
 }
 
-
+/* ── PAGES ── */
 .page{display:none;min-height:100vh;padding-top:58px;position:relative;z-index:1;}
 .page.active{display:block;}
 
-
+/* ── PAGE BG OVERLAY (shared across pages) ── */
 .page-bg{position:absolute;inset:0;pointer-events:none;z-index:0;
   background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(79,110,247,0.07),transparent);}
 
-
+/* ── HERO ── */
 .hero{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:calc(100vh - 58px);
@@ -107,7 +107,7 @@ nav{
   line-height:1.7;margin-bottom:36px;}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
 
-
+/* ── BUTTONS ── */
 .btn-p{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:9px;
   background:var(--blue);border:none;color:#fff;font-family:'Inter',sans-serif;
   font-size:0.87rem;font-weight:600;cursor:pointer;transition:all 0.18s;text-decoration:none;
@@ -119,7 +119,7 @@ nav{
   font-family:'Inter',sans-serif;font-size:0.87rem;font-weight:500;cursor:pointer;transition:all 0.18s;}
 .btn-o:hover{background:rgba(255,255,255,0.04);border-color:#3a3a3a;color:var(--white);transform:translateY(-2px);}
 
-
+/* ── TICKER ── */
 .ticker-wrap{width:100%;overflow:hidden;padding:15px 0;
   border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   background:var(--bg2);position:relative;}
@@ -134,7 +134,7 @@ nav{
 .ti{display:flex;align-items:center;gap:9px;white-space:nowrap;color:var(--muted);font-size:0.79rem;font-weight:500;}
 .tdot{width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0;}
 
-
+/* ── STATS ── */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);}
 .stat-cell{padding:clamp(20px,4vw,36px) 20px;text-align:center;border-right:1px solid var(--border);}
 .stat-cell:last-child{border-right:none;}
@@ -143,13 +143,13 @@ nav{
 .sl{font-size:0.72rem;color:var(--muted);margin-top:4px;}
 @media(max-width:600px){.stats-row{grid-template-columns:1fr 1fr;}.stat-cell{border-bottom:1px solid var(--border);}}
 
-
+/* ── SECTION WRAPPER ── */
 .sw{max-width:1040px;margin:0 auto;padding:clamp(40px,6vw,70px) clamp(16px,4vw,40px);}
 .slabel{font-size:0.68rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
 .stitle{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:var(--white);letter-spacing:-0.5px;margin-bottom:8px;}
 .ssub{font-size:0.9rem;color:var(--muted);line-height:1.65;max-width:480px;}
 
-
+/* ── FEAT GRID ── */
 .fg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
   border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:36px;}
 @media(max-width:700px){.fg{grid-template-columns:1fr 1fr;}}
@@ -160,25 +160,25 @@ nav{
 .fn{font-size:0.9rem;font-weight:700;color:var(--white);margin-bottom:6px;}
 .fd{font-size:0.81rem;color:var(--muted);line-height:1.6;}
 
-
+/* ── CTA BAND ── */
 .cta-band{border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   background:var(--bg2);padding:clamp(40px,6vw,60px) clamp(16px,4vw,40px);text-align:center;}
 .cta-band h2{font-size:clamp(1.3rem,3vw,1.7rem);font-weight:800;color:var(--white);margin-bottom:8px;}
 .cta-band p{color:var(--muted);margin-bottom:26px;font-size:0.9rem;}
 
-
+/* ── PAGE INNER ── */
 .pi{max-width:920px;margin:0 auto;padding:clamp(36px,5vw,56px) clamp(16px,4vw,28px) 80px;position:relative;z-index:1;}
 .ph{margin-bottom:40px;}
 .ph h1{font-size:clamp(1.6rem,4vw,2rem);font-weight:800;color:var(--white);margin-bottom:6px;}
 .ph p{color:var(--muted);font-size:0.88rem;}
 
-
+/* ── DIVIDER LABEL ── */
 .dl{font-size:0.67rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;
   color:var(--muted);padding-bottom:11px;border-bottom:1px solid var(--border);
   margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 .dl em{color:var(--blue);font-style:normal;}
 
-
+/* ── STAFF ── */
 .srow{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;}
 .sc{display:flex;align-items:center;gap:12px;background:var(--card);
   border:1px solid var(--border);border-radius:11px;padding:13px 16px;
@@ -195,7 +195,7 @@ nav{
 .srl{font-size:0.68rem;font-weight:500;margin-top:2px;letter-spacing:0.5px;}
 .rl{color:#f87171;}.rd{color:var(--blue);}.rm{color:#a78bfa;}.rmo{color:#4ade80;}.rs{color:#fbbf24;}.rb{color:#fb923c;}
 
-
+/* ── REVIEWS ── */
 .rv-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
 .rvc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all 0.15s;}
 .rvc:hover{border-color:var(--border2);transform:translateY(-1px);}
@@ -208,7 +208,7 @@ nav{
 .str{font-size:0.9rem;}.son{color:var(--gold);}.sof{color:#222;}
 .rvb{font-size:0.84rem;color:var(--muted);line-height:1.65;}
 
-
+/* ── SUBMIT ── */
 .sub-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:28px;position:relative;overflow:hidden;}
 .sub-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);}
 .st{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:3px;}
@@ -233,13 +233,13 @@ nav{
 .fsub:hover{background:var(--blue2);transform:translateY(-1px);}
 .okm{display:none;margin-top:11px;padding:10px;border-radius:7px;background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);color:var(--green);font-size:0.82rem;font-weight:600;text-align:center;}
 
-
+/* ── PRICE TABS ── */
 .ptabs{display:flex;gap:6px;margin-bottom:28px;background:var(--bg2);padding:5px;border-radius:9px;border:1px solid var(--border);width:fit-content;}
 .ptab{padding:7px 18px;border-radius:7px;background:none;border:none;color:var(--muted);font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:500;cursor:pointer;transition:all 0.15s;}
 .ptab.active{background:var(--bg3);color:var(--white);border:1px solid var(--border2);}
 .psec{display:none;}.psec.active{display:block;}
 
-
+/* ── PRICE CARDS ── */
 .pc{background:var(--card);border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:14px;transition:border-color 0.15s;}
 .pc:hover{border-color:var(--border2);}
 .pc.br{border-left:3px solid var(--bronze);}.pc.si{border-left:3px solid var(--silver);}.pc.di{border-left:3px solid var(--diamond);}
@@ -259,7 +259,7 @@ nav{
 .pnl{font-size:0.63rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
 .pnote p{font-size:0.8rem;color:var(--muted);line-height:1.6;}
 
-
+/* ── CODING ── */
 .info-box{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:24px;margin-bottom:18px;position:relative;overflow:hidden;}
 .info-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);}
 .info-box h3{font-size:0.97rem;font-weight:700;color:var(--white);margin-bottom:7px;}
@@ -268,7 +268,7 @@ nav{
 .embed-box{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 12px 12px 0;padding:20px 22px;margin:18px 0;}
 .embed-label{font-size:0.67rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
 
-
+/* moving tags ticker */
 .tag-ticker{overflow:hidden;position:relative;margin:0 -22px;}
 .tag-ticker::before,.tag-ticker::after{content:'';position:absolute;top:0;bottom:0;width:40px;z-index:2;}
 .tag-ticker::before{left:0;background:linear-gradient(90deg,var(--card),transparent);}
@@ -289,7 +289,7 @@ nav{
 .tb-txt strong{display:block;color:var(--white);font-size:0.92rem;margin-bottom:3px;}
 .tb-txt span{font-size:0.81rem;color:var(--muted);}
 
-
+/* ── PAYMENT ── */
 .pay-embed{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 13px 13px 0;padding:22px 24px;margin-bottom:18px;}
 .pay-embed-lbl{font-size:0.67rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:6px;}
 .pay-embed h2{font-size:1.2rem;font-weight:800;color:var(--white);margin-bottom:18px;}
@@ -304,7 +304,7 @@ nav{
 .pay-note p{font-size:0.82rem;color:var(--muted);line-height:1.65;}
 .pay-note strong{color:var(--text);}
 
-
+/* ── STATUS ── */
 .status-card{background:var(--card);border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:14px;}
 .status-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--border);cursor:pointer;}
 .status-header:hover{background:rgba(255,255,255,0.02);}
@@ -329,7 +329,7 @@ nav{
 .uptime-block.up{background:rgba(34,197,94,0.5);}
 .uptime-block.part{background:rgba(245,158,11,0.4);}
 
-
+/* ── HOW TO BE DEV ── */
 .req-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:24px;margin-bottom:14px;transition:border-color 0.15s;}
 .req-card:hover{border-color:var(--border2);}
 .req-card h3{font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:10px;display:flex;align-items:center;gap:9px;}
@@ -339,7 +339,7 @@ nav{
 .warn-box{background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.2);border-radius:10px;padding:14px 16px;margin-top:12px;}
 .warn-box p{font-size:0.82rem;color:#f87171;line-height:1.6;}
 
-
+/* ── DOCS ── */
 .docs-layout{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:start;}
 @media(max-width:680px){.docs-layout{grid-template-columns:1fr;}}
 .docs-sidebar{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:14px;position:sticky;top:74px;}
@@ -363,7 +363,7 @@ nav{
 .expand-btn{margin-top:14px;padding:8px 20px;border-radius:8px;background:transparent;border:1px solid var(--border2);color:var(--text);font-family:'Inter',sans-serif;font-size:0.83rem;font-weight:500;cursor:pointer;transition:all 0.15s;}
 .expand-btn:hover{background:rgba(255,255,255,0.04);border-color:#3a3a3a;}
 
-
+/* ── LEGAL ── */
 .legal-tabs{display:flex;gap:6px;margin-bottom:28px;background:var(--bg2);padding:5px;border-radius:9px;border:1px solid var(--border);width:fit-content;}
 .ltab{padding:7px 18px;border-radius:7px;background:none;border:none;color:var(--muted);font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:500;cursor:pointer;transition:all 0.15s;}
 .ltab.active{background:var(--bg3);color:var(--white);border:1px solid var(--border2);}
@@ -381,7 +381,7 @@ nav{
 .legal-section strong{color:var(--text);}
 .legal-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:6px;background:rgba(79,110,247,0.08);border:1px solid rgba(79,110,247,0.18);font-size:0.7rem;font-weight:600;color:var(--blue);margin-bottom:18px;}
 
-
+/* ── FOOTER ── */
 footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16px,4vw,40px);
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:relative;z-index:1;}
 .foot-brand{display:flex;align-items:center;gap:9px;}
@@ -396,9 +396,7 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
 </head>
 <body>
 
-
 <canvas id="bgCanvas"></canvas>
-
 
 <nav>
   <div class="nav-brand" onclick="showPage('home',allNavBtns()[0])">
@@ -440,7 +438,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   <button onclick="showPage('legal',this);toggleMenu()">Legal</button>
 </div>
 
-
 <div class="page active" id="page-home">
   <div class="page-bg"></div>
   <section class="hero">
@@ -457,8 +454,25 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
         + Support Server
       </a>
       <button class="btn-o" onclick="showPage('prices',allNavBtns()[1])">View Prices →</button>
+      <button class="btn-o" onclick="openDevPortal()" style="border-color:rgba(79,110,247,0.3);color:var(--blue);">🔒 Developer Portal</button>
     </div>
   </section>
+
+  
+  <div id="devModal" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px;">
+    <div style="background:#111;border:1px solid #2a2a2a;border-radius:16px;padding:36px;max-width:380px;width:100%;position:relative;">
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);border-radius:16px 16px 0 0;"></div>
+      <div style="font-size:1.4rem;margin-bottom:8px;">🔒</div>
+      <div style="font-size:1rem;font-weight:700;color:var(--white);margin-bottom:6px;">Developer Portal</div>
+      <div style="font-size:0.82rem;color:var(--muted);margin-bottom:22px;">This area is restricted to CustomBots staff only.</div>
+      <input id="devPwInput" type="password" placeholder="Enter password…" style="width:100%;background:rgba(255,255,255,0.03);border:1px solid #2a2a2a;border-radius:8px;padding:11px 14px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.9rem;outline:none;margin-bottom:10px;" onkeydown="if(event.key==='Enter')checkDevPw()">
+      <div id="devPwErr" style="font-size:0.78rem;color:#ef4444;margin-bottom:10px;display:none;">Incorrect password. Access denied.</div>
+      <div style="display:flex;gap:8px;">
+        <button onclick="checkDevPw()" style="flex:1;padding:10px;border-radius:8px;background:var(--blue);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:0.87rem;font-weight:600;cursor:pointer;">Enter</button>
+        <button onclick="closeDevModal()" style="padding:10px 16px;border-radius:8px;background:transparent;border:1px solid #2a2a2a;color:var(--muted);font-family:'Inter',sans-serif;font-size:0.87rem;cursor:pointer;">Cancel</button>
+      </div>
+    </div>
+  </div>
 
   <div class="ticker-wrap"><div class="ticker-track t1" id="tick1"></div></div>
 
@@ -493,7 +507,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   </div>
 </div>
 
-
 <div class="page" id="page-prices">
   <div class="page-bg"></div>
   <div class="pi">
@@ -520,7 +533,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
     </div>
   </div>
 </div>
-
 
 <div class="page" id="page-staff">
   <div class="page-bg"></div>
@@ -551,7 +563,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   </div>
 </div>
 
-
 <div class="page" id="page-coding">
   <div class="page-bg"></div>
   <div class="pi">
@@ -576,7 +587,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
     </div>
   </div>
 </div>
-
 
 <div class="page" id="page-dev">
   <div class="page-bg"></div>
@@ -612,7 +622,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   </div>
 </div>
 
-
 <div class="page" id="page-payment">
   <div class="page-bg"></div>
   <div class="pi">
@@ -630,7 +639,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   </div>
 </div>
 
-
 <div class="page" id="page-status">
   <div class="page-bg"></div>
   <div class="pi">
@@ -641,7 +649,7 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
       <div><div style="font-size:0.9rem;font-weight:700;color:var(--white);">All Systems Operational</div><div style="font-size:0.76rem;color:var(--muted);margin-top:2px;">Last checked just now</div></div>
     </div>
 
-   
+    
     <div class="status-card">
       <div class="status-header" onclick="toggleStatus('s1')">
         <div class="sh-left"><span class="sh-icon">🌐</span><div><div class="sh-name">Website</div><div class="sh-desc">custombotsgg.vercel.app</div></div></div>
@@ -657,7 +665,7 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
       </div>
     </div>
 
-   
+    
     <div class="status-card">
       <div class="status-header" onclick="toggleStatus('s2')">
         <div class="sh-left"><span class="sh-icon">🛡️</span><div><div class="sh-name">Security Bot</div><div class="sh-desc">Discord bot — all shards</div></div></div>
@@ -689,7 +697,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
 
   </div>
 </div>
-
 
 <div class="page" id="page-docs">
   <div class="page-bg"></div>
@@ -739,7 +746,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   </div>
 </div>
 
-
 <div class="page" id="page-reviews">
   <div class="page-bg"></div>
   <div class="pi">
@@ -764,7 +770,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   </div>
 </div>
 
-
 <div class="page" id="page-legal">
   <div class="page-bg"></div>
   <div class="pi">
@@ -779,12 +784,12 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
       <button class="ltab" onclick="switchLTab('privacy',this)">Privacy Policy</button>
     </div>
 
-  
+    
     <div class="lsec active" id="lt-tos">
       <div class="legal-doc">
         <div class="legal-badge">📄 Last updated: May 2025</div>
         <h2>Terms &amp; Conditions</h2>
-        <p class="legal-date">Effective date: May 1, 2025 · CustomBots</p>
+        <p class="legal-date">Effective date: May 21, 2025 · CustomBots</p>
 
         <div class="legal-section">
           <h3>1. Acceptance of Terms</h3>
@@ -849,7 +854,7 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
 
         <div class="legal-section">
           <h3>9. Contact</h3>
-          <p>For any questions regarding these Terms, please open a ticket in our <strong>support server</strong> on Discord.</p>
+          <p>For any questions regarding these Terms, please <a href="mailto:custombotslegal@gmail.com" style="color:var(--blue);text-decoration:none;">email us at custombotslegal@gmail.com</a> or open a ticket in our Discord support server.</p>
         </div>
       </div>
     </div>
@@ -857,9 +862,9 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
     
     <div class="lsec" id="lt-privacy">
       <div class="legal-doc">
-        <div class="legal-badge">🔒 Last updated: May 2026</div>
+        <div class="legal-badge">🔒 Last updated: May 2025</div>
         <h2>Privacy Policy</h2>
-        <p class="legal-date">Effective date: May 1, 2025 · CustomBots</p>
+        <p class="legal-date">Effective date: May 21, 2025 · CustomBots</p>
 
         <div class="legal-section">
           <h3>1. Introduction</h3>
@@ -932,8 +937,65 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
 
         <div class="legal-section">
           <h3>10. Contact</h3>
-          <p>If you have any questions or concerns about this Privacy Policy, please open a support ticket in our <strong>Discord server</strong>.</p>
+          <p>If you have any questions or concerns about this Privacy Policy, please <a href="mailto:custombotslegal@gmail.com" style="color:var(--blue);text-decoration:none;">email us at custombotslegal@gmail.com</a> or open a support ticket in our Discord server.</p>
         </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="page" id="page-devportal">
+  <div class="page-bg"></div>
+  <div class="pi">
+    <div class="ph" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;">
+      <div>
+        <div class="slabel">Internal</div>
+        <h1>Developer Portal</h1>
+        <p>Manage tickets and internal tasks. Restricted to CustomBots staff.</p>
+      </div>
+      <button onclick="lockPortal()" style="padding:8px 16px;border-radius:8px;background:transparent;border:1px solid #2a2a2a;color:var(--muted);font-family:'Inter',sans-serif;font-size:0.8rem;cursor:pointer;margin-top:8px;">🔒 Lock Portal</button>
+    </div>
+
+    
+    <div class="ptabs" style="margin-bottom:28px;">
+      <button class="ptab active" onclick="switchPortalTab('tickets',this)">🎟 Tickets</button>
+    </div>
+
+    
+    <div class="psec active" id="portal-tickets">
+
+      
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:13px;padding:24px;margin-bottom:20px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);"></div>
+        <div style="font-size:0.88rem;font-weight:700;color:var(--white);margin-bottom:16px;">+ New Ticket</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <label style="font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Title</label>
+            <input id="tk-title" type="text" placeholder="Ticket title…" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:7px;padding:9px 12px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <label style="font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Assigned To</label>
+            <input id="tk-assign" type="text" placeholder="Developer name…" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:7px;padding:9px 12px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:12px;">
+          <label style="font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Description</label>
+          <textarea id="tk-desc" placeholder="Describe the task or issue…" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:7px;padding:9px 12px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;resize:vertical;min-height:72px;"></textarea>
+        </div>
+        <button onclick="addTicket()" style="padding:9px 24px;border-radius:8px;background:var(--blue);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:0.87rem;font-weight:600;cursor:pointer;">Create Ticket</button>
+      </div>
+
+      
+      <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+        <button class="tk-filter active" data-filter="all" onclick="filterTickets(this)" style="padding:6px 14px;border-radius:6px;background:rgba(255,255,255,0.07);border:1px solid var(--border2);color:var(--white);font-family:'Inter',sans-serif;font-size:0.78rem;cursor:pointer;">All</button>
+        <button class="tk-filter" data-filter="progress" onclick="filterTickets(this)" style="padding:6px 14px;border-radius:6px;background:none;border:1px solid var(--border);color:var(--muted);font-family:'Inter',sans-serif;font-size:0.78rem;cursor:pointer;">In Progress</button>
+        <button class="tk-filter" data-filter="done" onclick="filterTickets(this)" style="padding:6px 14px;border-radius:6px;background:none;border:1px solid var(--border);color:var(--muted);font-family:'Inter',sans-serif;font-size:0.78rem;cursor:pointer;">Done</button>
+      </div>
+
+      
+      <div id="ticket-list">
+        <div style="text-align:center;padding:40px;color:var(--muted);font-size:0.85rem;">No tickets yet. Create one above.</div>
       </div>
     </div>
 
@@ -947,8 +1009,9 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   </div>
   <div class="foot-links">
     <a class="foot-link" href="https://discord.gg/zhNMDFdqpQ" target="_blank">Discord</a>
-    <button class="foot-link" onclick="showPage('legal',null);document.querySelectorAll('.nav-center button').forEach(b=>b.classList.remove('active'));">Terms &amp; Conditions</button>
-    <button class="foot-link" onclick="showPage('legal',null);switchLTab('privacy',document.querySelectorAll('.ltab')[1]);document.querySelectorAll('.nav-center button').forEach(b=>b.classList.remove('active'));">Privacy Policy</button>
+    <button class="foot-link" onclick="showPage('legal',null);setTimeout(()=>switchLTab('tos',document.querySelectorAll('.ltab')[0]),10);">Terms &amp; Conditions</button>
+    <button class="foot-link" onclick="showPage('legal',null);setTimeout(()=>switchLTab('privacy',document.querySelectorAll('.ltab')[1]),10);">Privacy Policy</button>
+    <a class="foot-link" href="mailto:custombotslegal@gmail.com">Legal Contact</a>
   </div>
 </footer>
 
@@ -966,7 +1029,7 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   resize();
   window.addEventListener('resize', resize);
 
- 
+  
   for(let i=0;i<90;i++){
     particles.push({
       x:Math.random()*W, y:Math.random()*H,
@@ -979,7 +1042,7 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   function draw(){
     ctx.clearRect(0,0,W,H);
 
-   
+    
     for(let i=0;i<particles.length;i++){
       for(let j=i+1;j<particles.length;j++){
         const dx=particles[i].x-particles[j].x;
@@ -1012,7 +1075,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   draw();
 })();
 
-
 const LOGO = 'https://cdn.discordapp.com/icons/1384618077244887123/a091ebb31546002c2b43efaa68bcbac5.webp?size=256';
 const PROXY = 'https://corsproxy.io/?';
 function tryImg(url, cb){
@@ -1026,7 +1088,6 @@ tryImg(LOGO,src=>{
   const ht=document.getElementById('heroTxt');if(ht)ht.style.display='none';
 });
 
-// Staff avatars
 const AVATARS={
   firesuper:'https://cdn.discordapp.com/avatars/1223987586108883025/1b65f08850b79e19fc93da7aafd8e311.webp?size=128',
   purpleman:'https://cdn.discordapp.com/avatars/1344761188646387735/77e44e78ab7a3021286dde827eee08c3.webp?size=128',
@@ -1041,14 +1102,12 @@ const AVATARS={
 };
 Object.entries(AVATARS).forEach(([k,url])=>tryImg(url,src=>{const w=document.getElementById('av-'+k);if(w)w.innerHTML=`<img src="${src}" style="width:42px;height:42px;border-radius:50%;object-fit:cover;display:block;">`;  }));
 
-
 const HOME_ITEMS=['Custom Commands','Auto Moderation','Welcome Messages','Role Management','Economy System','Leveling & XP','Ticket System','ERLC Integration','Anti-Spam','Server Logs','Reaction Roles','Giveaways'];
 function buildTicker(elId,items){
   const el=document.getElementById(elId);if(!el)return;
   [...items,...items].forEach(t=>{const d=document.createElement('div');d.className='ti';d.innerHTML=`<span class="tdot"></span>${t}`;el.appendChild(d);});
 }
 buildTicker('tick1',HOME_ITEMS);
-
 
 const LANGS=[
   {name:'HTML',color:'#e34c26'},{name:'CSS',color:'#264de4'},{name:'C#',color:'#178600'},
@@ -1066,19 +1125,16 @@ function buildTagTicker(elId,items,dup=true){
 }
 buildTagTicker('langTrack1',LANGS);
 
-
 const DEV_LANGS=[
   {name:'Python',color:'#3776ab'},{name:'JavaScript',color:'#f7df1e'},{name:'TypeScript',color:'#3178c6'}
 ];
 buildTagTicker('devLangTrack',DEV_LANGS);
-
 
 const PAY_METHODS=[
   {name:'CashApp',color:'#00d632'},{name:'Gift Cards',color:'#f59e0b'},
   {name:'Robux',color:'#ff6b35'},{name:'PayPal',color:'#003087'}
 ];
 buildTagTicker('payTrack',PAY_METHODS);
-
 
 function allNavBtns(){return document.querySelectorAll('.nav-center button');}
 function showPage(id,btn){
@@ -1092,7 +1148,6 @@ function toggleMenu(){
   document.getElementById('mobileMenu').classList.toggle('open');
 }
 
-
 function switchPTab(id,btn){
   document.querySelectorAll('.psec').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
@@ -1100,16 +1155,13 @@ function switchPTab(id,btn){
   btn.classList.add('active');
 }
 
-
 function toggleStatus(id){const el=document.getElementById(id);el.style.display=el.style.display==='none'?'flex':'none';}
-
 
 function buildUptime(id,chance){
   const el=document.getElementById(id);if(!el)return;
   for(let i=0;i<30;i++){const d=document.createElement('div');d.className='uptime-block'+(Math.random()<chance?' up':Math.random()<0.05?' part':'');el.appendChild(d);}
 }
 buildUptime('webUptime',0.999);buildUptime('botUptime',0.997);buildUptime('hostUptime',0.998);
-
 
 (function measureLatency(){
   const t0=performance.now();
@@ -1126,7 +1178,6 @@ buildUptime('webUptime',0.999);buildUptime('botUptime',0.997);buildUptime('hostU
     });
 })();
 
-
 function showDoc(id,btn){
   document.querySelectorAll('.doc-article').forEach(a=>a.classList.remove('active'));
   document.querySelectorAll('.doc-link').forEach(b=>b.classList.remove('active'));
@@ -1139,7 +1190,6 @@ function toggleLearnMore(){
   el.classList.toggle('open');
   btn.textContent=el.classList.contains('open')?'Hide ↑':'Learn more about hosting ↓';
 }
-
 
 let cStars=0;
 function setStar(n){cStars=n;document.querySelectorAll('.spb').forEach((b,i)=>b.classList.toggle('on',i<n));}
@@ -1158,6 +1208,128 @@ function submitReview(){
   cStars=0;document.querySelectorAll('.spb').forEach(b=>b.classList.remove('on'));
   const ok=document.getElementById('okm');ok.style.display='block';setTimeout(()=>ok.style.display='none',4000);
   card.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function switchLTab(id, btn) {
+  document.querySelectorAll('.lsec').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.ltab').forEach(b => b.classList.remove('active'));
+  const sec = document.getElementById('lt-' + id);
+  if (sec) sec.classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+function openDevPortal() {
+  const modal = document.getElementById('devModal');
+  modal.style.display = 'flex';
+  document.getElementById('devPwInput').value = '';
+  document.getElementById('devPwErr').style.display = 'none';
+  setTimeout(() => document.getElementById('devPwInput').focus(), 100);
+}
+function closeDevModal() {
+  document.getElementById('devModal').style.display = 'none';
+}
+function checkDevPw() {
+  const val = document.getElementById('devPwInput').value;
+  const err = document.getElementById('devPwErr');
+  if (val === 'custombots98') {
+    closeDevModal();
+    showPage('devportal', null);
+  } else {
+    err.style.display = 'block';
+    document.getElementById('devPwInput').value = '';
+    document.getElementById('devPwInput').focus();
+  }
+}
+function lockPortal() {
+  showPage('home', document.querySelector('.nav-center button'));
+}
+function switchPortalTab(id, btn) {
+  document.querySelectorAll('#page-devportal .psec').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('#page-devportal .ptab').forEach(b => b.classList.remove('active'));
+  document.getElementById('portal-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+let tickets = [];
+let ticketId = 1;
+let currentFilter = 'all';
+
+function addTicket() {
+  const title = document.getElementById('tk-title').value.trim();
+  const assign = document.getElementById('tk-assign').value.trim();
+  const desc = document.getElementById('tk-desc').value.trim();
+  if (!title) { alert('Please enter a ticket title.'); return; }
+
+  const ticket = {
+    id: ticketId++,
+    title,
+    assign: assign || 'Unassigned',
+    desc: desc || '',
+    status: 'progress',
+    created: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+  };
+  tickets.unshift(ticket);
+  document.getElementById('tk-title').value = '';
+  document.getElementById('tk-assign').value = '';
+  document.getElementById('tk-desc').value = '';
+  renderTickets();
+}
+
+function setTicketStatus(id, status) {
+  const t = tickets.find(t => t.id === id);
+  if (t) { t.status = status; renderTickets(); }
+}
+
+function deleteTicket(id) {
+  tickets = tickets.filter(t => t.id !== id);
+  renderTickets();
+}
+
+function filterTickets(btn) {
+  currentFilter = btn.dataset.filter;
+  document.querySelectorAll('.tk-filter').forEach(b => {
+    const isActive = b === btn;
+    b.style.background = isActive ? 'rgba(255,255,255,0.07)' : 'none';
+    b.style.borderColor = isActive ? 'var(--border2)' : 'var(--border)';
+    b.style.color = isActive ? 'var(--white)' : 'var(--muted)';
+  });
+  renderTickets();
+}
+
+function renderTickets() {
+  const list = document.getElementById('ticket-list');
+  const filtered = currentFilter === 'all' ? tickets : tickets.filter(t => t.status === currentFilter);
+
+  if (filtered.length === 0) {
+    list.innerHTML = '<div style="text-align:center;padding:40px;color:var(--muted);font-size:0.85rem;">' + (tickets.length === 0 ? 'No tickets yet. Create one above.' : 'No tickets match this filter.') + '</div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map(t => {
+    const isProg = t.status === 'progress';
+    const badgeColor = isProg ? 'rgba(245,158,11,0.1)' : 'rgba(34,197,94,0.1)';
+    const badgeBorder = isProg ? 'rgba(245,158,11,0.3)' : 'rgba(34,197,94,0.3)';
+    const badgeText = isProg ? '#f59e0b' : '#22c55e';
+    const badgeLabel = isProg ? '⏳ In Progress' : '✅ Done';
+    return `<div style="background:var(--card);border:1px solid var(--border);border-left:3px solid ${isProg ? '#f59e0b' : '#22c55e'};border-radius:12px;padding:18px 20px;margin-bottom:10px;transition:border-color 0.15s;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span style="font-family:monospace;font-size:0.72rem;color:var(--muted);">#${t.id}</span>
+          <span style="font-size:0.92rem;font-weight:700;color:var(--white);">${t.title}</span>
+          <span style="padding:3px 10px;border-radius:6px;background:${badgeColor};border:1px solid ${badgeBorder};font-size:0.7rem;font-weight:600;color:${badgeText};">${badgeLabel}</span>
+        </div>
+        <span style="font-size:0.72rem;color:var(--muted);">${t.created}</span>
+      </div>
+      ${t.desc ? `<p style="font-size:0.83rem;color:var(--muted);line-height:1.6;margin-bottom:12px;">${t.desc}</p>` : ''}
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <span style="font-size:0.77rem;color:var(--muted);">👤 ${t.assign}</span>
+        <div style="display:flex;gap:6px;">
+          ${isProg ? `<button onclick="setTicketStatus(${t.id},'done')" style="padding:5px 12px;border-radius:6px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);color:#22c55e;font-family:'Inter',sans-serif;font-size:0.76rem;cursor:pointer;">Mark Done</button>` : `<button onclick="setTicketStatus(${t.id},'progress')" style="padding:5px 12px;border-radius:6px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);color:#f59e0b;font-family:'Inter',sans-serif;font-size:0.76rem;cursor:pointer;">Reopen</button>`}
+          <button onclick="deleteTicket(${t.id})" style="padding:5px 12px;border-radius:6px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);color:#ef4444;font-family:'Inter',sans-serif;font-size:0.76rem;cursor:pointer;">Delete</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
 }
 </script>
 </body>
