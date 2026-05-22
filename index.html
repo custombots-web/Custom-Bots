@@ -22,7 +22,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overf
 ::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:4px;}
 
 /* ── ANIMATED BG CANVAS ── */
-#bgCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.55;}
+#bgCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.7;}
 
 /* ── NAV ── */
 nav{
@@ -265,12 +265,11 @@ nav{
 .info-box h3{font-size:0.97rem;font-weight:700;color:var(--white);margin-bottom:7px;}
 .info-box p{font-size:0.86rem;color:var(--muted);line-height:1.7;}
 
-.embed-box{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 12px 12px 0;padding:20px 22px;margin:18px 0;}
+.embed-box{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 12px 12px 0;padding:20px 22px;margin:18px 0;overflow:hidden;}
 .embed-label{font-size:0.67rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
 
-/* moving tags ticker */
-.tag-ticker{overflow:hidden;position:relative;margin:0 -22px;}
-.tag-ticker::before,.tag-ticker::after{content:'';position:absolute;top:0;bottom:0;width:40px;z-index:2;}
+.tag-ticker{overflow:hidden;position:relative;margin:0 -22px;padding:0 22px;}
+.tag-ticker::before,.tag-ticker::after{content:'';position:absolute;top:0;bottom:0;width:50px;z-index:2;pointer-events:none;}
 .tag-ticker::before{left:0;background:linear-gradient(90deg,var(--card),transparent);}
 .tag-ticker::after{right:0;background:linear-gradient(-90deg,var(--card),transparent);}
 .tag-track{display:flex;gap:10px;width:max-content;padding:4px 0;}
@@ -363,6 +362,68 @@ nav{
 .expand-btn{margin-top:14px;padding:8px 20px;border-radius:8px;background:transparent;border:1px solid var(--border2);color:var(--text);font-family:'Inter',sans-serif;font-size:0.83rem;font-weight:500;cursor:pointer;transition:all 0.15s;}
 .expand-btn:hover{background:rgba(255,255,255,0.04);border-color:#3a3a3a;}
 
+/* ── SHOP ── */
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:32px;}
+.shop-item{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all 0.2s;display:flex;flex-direction:column;}
+.shop-item:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.4);}
+.shop-item-header{padding:20px 20px 14px;flex:1;}
+.shop-item-icon{font-size:1.8rem;margin-bottom:12px;}
+.shop-item-name{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:6px;}
+.shop-item-desc{font-size:0.81rem;color:var(--muted);line-height:1.6;}
+.shop-item-footer{padding:14px 20px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.shop-item-price{font-size:1.1rem;font-weight:800;color:var(--white);}
+.shop-item-price span{font-size:0.72rem;font-weight:400;color:var(--muted);}
+.add-to-cart{padding:8px 18px;border-radius:8px;background:var(--blue);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.15s;}
+.add-to-cart:hover{background:var(--blue2);}
+.add-to-cart.added{background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);color:var(--green);}
+
+.cart-bar{position:fixed;bottom:20px;right:20px;z-index:800;display:none;}
+.cart-btn{display:flex;align-items:center;gap:10px;padding:12px 22px;border-radius:12px;background:var(--blue);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;box-shadow:0 4px 24px var(--glow);transition:all 0.2s;}
+.cart-btn:hover{background:var(--blue2);transform:translateY(-2px);}
+.cart-count{background:#fff;color:var(--blue);border-radius:999px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;}
+
+.modal-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.88);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#111;border:1px solid #2a2a2a;border-radius:18px;padding:32px;max-width:480px;width:100%;position:relative;max-height:90vh;overflow-y:auto;}
+.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);border-radius:18px 18px 0 0;}
+.modal-title{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:4px;}
+.modal-sub{font-size:0.8rem;color:var(--muted);margin-bottom:22px;}
+.cart-line{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border);font-size:0.86rem;}
+.cart-line .cl-name{color:var(--text);}
+.cart-line .cl-price{color:var(--white);font-weight:700;}
+.cart-remove{background:none;border:none;color:var(--muted);cursor:pointer;font-size:0.8rem;padding:2px 6px;border-radius:4px;}
+.cart-remove:hover{color:var(--red);}
+.cart-total{display:flex;justify-content:space-between;padding:14px 0 0;font-size:1rem;font-weight:800;color:var(--white);}
+.checkout-section{margin-top:20px;}
+.checkout-label{font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.pay-select{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
+.pay-opt{padding:10px 12px;border-radius:9px;background:rgba(255,255,255,0.03);border:1px solid var(--border);color:var(--muted);font-family:'Inter',sans-serif;font-size:0.82rem;cursor:pointer;text-align:center;transition:all 0.15s;}
+.pay-opt:hover{border-color:var(--border2);color:var(--text);}
+.pay-opt.sel{background:rgba(79,110,247,0.1);border-color:rgba(79,110,247,0.4);color:var(--blue);}
+.checkout-note{font-size:0.78rem;color:var(--muted);line-height:1.6;margin-bottom:16px;}
+.checkout-name-input{width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.88rem;outline:none;margin-bottom:10px;}
+.checkout-name-input:focus{border-color:var(--blue);}
+.checkout-submit{width:100%;padding:12px;border-radius:9px;background:var(--blue);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.15s;box-shadow:0 4px 20px var(--glow);}
+.checkout-submit:hover{background:var(--blue2);}
+.order-success{text-align:center;padding:10px 0;}
+.order-success .os-icon{font-size:2.5rem;margin-bottom:12px;}
+.order-success h3{font-size:1rem;font-weight:800;color:var(--white);margin-bottom:6px;}
+.order-success p{font-size:0.83rem;color:var(--muted);line-height:1.6;}
+
+/* ── OUR WORK ── */
+.work-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
+.work-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all 0.2s;position:relative;overflow:hidden;}
+.work-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity 0.2s;}
+.work-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.4);}
+.work-card:hover::before{opacity:1;}
+.work-card-icon{font-size:1.8rem;margin-bottom:14px;}
+.work-card-name{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:8px;}
+.work-card-desc{font-size:0.84rem;color:var(--muted);line-height:1.65;}
+.work-more{background:rgba(79,110,247,0.06);border:1px solid rgba(79,110,247,0.15);border-radius:12px;padding:20px 22px;margin-top:20px;display:flex;align-items:center;gap:14px;}
+.work-more-icon{font-size:1.4rem;flex-shrink:0;}
+.work-more-text{font-size:0.86rem;color:var(--muted);line-height:1.6;}
+.work-more-text strong{color:var(--text);}
+
 /* ── LEGAL ── */
 .legal-tabs{display:flex;gap:6px;margin-bottom:28px;background:var(--bg2);padding:5px;border-radius:9px;border:1px solid var(--border);width:fit-content;}
 .ltab{padding:7px 18px;border-radius:7px;background:none;border:none;color:var(--muted);font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:500;cursor:pointer;transition:all 0.15s;}
@@ -413,6 +474,8 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
     <button onclick="showPage('status',this)">Status</button>
     <button onclick="showPage('docs',this)">Docs</button>
     <button onclick="showPage('reviews',this)">Reviews</button>
+    <button onclick="showPage('shop',this)">Shop</button>
+    <button onclick="showPage('ourwork',this)">Our Work</button>
     <button onclick="showPage('legal',this)">Legal</button>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
@@ -435,6 +498,8 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   <button onclick="showPage('status',this);toggleMenu()">Status</button>
   <button onclick="showPage('docs',this);toggleMenu()">Docs</button>
   <button onclick="showPage('reviews',this);toggleMenu()">Reviews</button>
+  <button onclick="showPage('shop',this);toggleMenu()">Shop</button>
+  <button onclick="showPage('ourwork',this);toggleMenu()">Our Work</button>
   <button onclick="showPage('legal',this);toggleMenu()">Legal</button>
 </div>
 
@@ -454,6 +519,8 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
         + Support Server
       </a>
       <button class="btn-o" onclick="showPage('prices',allNavBtns()[1])">View Prices →</button>
+      <button class="btn-o" onclick="showPage('shop',null)" style="border-color:rgba(34,197,94,0.3);color:var(--green);">🛒 Shop</button>
+      <button class="btn-o" onclick="showPage('ourwork',null)">Our Work →</button>
       <button class="btn-o" onclick="openDevPortal()" style="border-color:rgba(79,110,247,0.3);color:var(--blue);">🔒 Developer Portal</button>
     </div>
   </section>
@@ -629,9 +696,16 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
     <div class="pay-embed">
       <div class="pay-embed-lbl">Accepted Payment Methods</div>
       <h2>How to Pay</h2>
-      
-      <div class="tag-ticker" style="margin:0 -24px;">
-        <div class="tag-track tt1" id="payTrack"></div>
+      <div class="pay-grid">
+        <div class="pm"><div class="pm-ico">💵</div><div><div class="pm-name">CashApp</div><div class="pm-desc">Fast &amp; easy peer-to-peer payments</div></div></div>
+        <div class="pm"><div class="pm-ico">🎁</div><div><div class="pm-name">Gift Cards</div><div class="pm-desc">Various gift card brands accepted</div></div></div>
+        <div class="pm"><div class="pm-ico">🟣</div><div><div class="pm-name">Robux</div><div class="pm-desc">Roblox in-game currency accepted</div></div></div>
+        <div class="pm"><div class="pm-ico">🅿️</div><div><div class="pm-name">PayPal</div><div class="pm-desc">Secure online payments via PayPal</div></div></div>
+      </div>
+      <div style="margin-top:18px;">
+        <div class="tag-ticker">
+          <div class="tag-track tt1" id="payTrack"></div>
+        </div>
       </div>
     </div>
     <div class="pay-note"><p>To complete a purchase, open a <strong>support ticket</strong> in our Discord server and a team member will assist you with payment and setup. Questions about payment? Ask in the server.</p></div>
@@ -770,6 +844,168 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   </div>
 </div>
 
+<div class="page" id="page-shop">
+  <div class="page-bg"></div>
+  <div class="pi">
+    <div class="ph">
+      <div class="slabel">Store</div>
+      <h1>Shop</h1>
+      <p>Add items to your cart and checkout. A team member will contact you to complete your order.</p>
+    </div>
+
+    <div class="shop-grid">
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">🥉</div>
+          <div class="shop-item-name">Bronze Bot</div>
+          <div class="shop-item-desc">Kick / Ban / Mute, Custom Branding, Join Logging, Moderation Commands + 1 feature of your choice.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$3 <span>USD</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'Bronze Bot',3)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">🥈</div>
+          <div class="shop-item-name">Silver Bot</div>
+          <div class="shop-item-desc">Everything in Bronze + Logging Channel, Ticket Channels, Add/Remove role, 2 features of your choice.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$5 <span>USD</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'Silver Bot',5)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">💎</div>
+          <div class="shop-item-name">Diamond Bot</div>
+          <div class="shop-item-desc">Everything in Silver + Purge, Level system, Auto role, Anti nuke, Anti Swear, 5 features of your choice.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$10 <span>USD</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'Diamond Bot',10)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">🥉</div>
+          <div class="shop-item-name">ERLC Bronze Bot</div>
+          <div class="shop-item-desc">Sessions with buttons or reactions, Basic moderation, Promote, Infractions + 1 feature of your choice.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$3 <span>USD</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'ERLC Bronze Bot',3)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">🥈</div>
+          <div class="shop-item-name">ERLC Silver Bot</div>
+          <div class="shop-item-desc">Bronze ERLC + Info embed ERLC API, 5 features of your choice.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$5 <span>USD</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'ERLC Silver Bot',5)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">💎</div>
+          <div class="shop-item-name">ERLC Diamond Bot</div>
+          <div class="shop-item-desc">Everything in ERLC Silver + Cars in-game, Player info, Command Execution, 13 features of your choice.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$9 <span>USD</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'ERLC Diamond Bot',9)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">🖥️</div>
+          <div class="shop-item-name">Bot Hosting</div>
+          <div class="shop-item-desc">24/7 dedicated hosting for your existing CustomBots bot. Low latency, always online, forever.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$5 <span>USD/mo</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'Bot Hosting',5)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-ourwork">
+  <div class="page-bg"></div>
+  <div class="pi">
+    <div class="ph">
+      <div class="slabel">Portfolio</div>
+      <h1>Our Work</h1>
+      <p>A selection of bots we've built for communities across Discord.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-card-icon">🛡️</div>
+        <div class="work-card-name">Security Bot</div>
+        <div class="work-card-desc">A very good security bot made to protect people's servers. Features anti-nuke, anti-raid, anti-spam, and advanced moderation to keep your community safe around the clock.</div>
+      </div>
+      <div class="work-card">
+        <div class="work-card-icon">⚙️</div>
+        <div class="work-card-name">Custom Bot</div>
+        <div class="work-card-desc">A bot made to manage the CustomBots Discord server. Handles ticketing, moderation, announcements, and all internal server operations.</div>
+      </div>
+      <div class="work-card">
+        <div class="work-card-icon">⚡</div>
+        <div class="work-card-name">Volt Customs</div>
+        <div class="work-card-desc">A bot made to manage Volt Customs. Tailored specifically for their community with custom commands, role management, and server automation.</div>
+      </div>
+      <div class="work-card">
+        <div class="work-card-icon">🗽</div>
+        <div class="work-card-name">New York Utilities</div>
+        <div class="work-card-desc">A bot made to manage New York Roleplay. Handles sessions, player utilities, and server management for a large roleplay community.</div>
+      </div>
+    </div>
+    <div class="work-more">
+      <div class="work-more-icon">🤫</div>
+      <div class="work-more-text"><strong>And many more...</strong> We have built far too many bots to list here. Join our support server to see more of our work or discuss your own project.</div>
+    </div>
+  </div>
+</div>
+
+<div class="cart-bar" id="cartBar">
+  <button class="cart-btn" onclick="openCart()">🛒 View Cart <span class="cart-count" id="cartCount">0</span></button>
+</div>
+
+<div class="modal-overlay" id="cartModal">
+  <div class="modal-box">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+      <div class="modal-title">🛒 Your Cart</div>
+      <button onclick="closeCart()" style="background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;">✕</button>
+    </div>
+    <div class="modal-sub">Review your items and choose a payment method.</div>
+    <div id="cartItems"></div>
+    <div class="cart-total"><span>Total</span><span id="cartTotal">$0</span></div>
+    <div class="checkout-section" id="checkoutSection">
+      <div class="checkout-label" style="margin-top:20px;">Your Discord Username</div>
+      <input class="checkout-name-input" id="checkoutName" type="text" placeholder="your_username">
+      <div class="checkout-label">Payment Method</div>
+      <div class="pay-select">
+        <div class="pay-opt" onclick="selectPay(this)">💵 CashApp</div>
+        <div class="pay-opt" onclick="selectPay(this)">🎁 Gift Cards</div>
+        <div class="pay-opt" onclick="selectPay(this)">🟣 Robux</div>
+        <div class="pay-opt" onclick="selectPay(this)">🅿️ PayPal</div>
+      </div>
+      <p class="checkout-note">After placing your order a CustomBots team member will reach out via Discord to arrange payment and delivery.</p>
+      <button class="checkout-submit" onclick="placeOrder()">Place Order</button>
+    </div>
+    <div class="order-success" id="orderSuccess" style="display:none;">
+      <div class="os-icon">✅</div>
+      <h3>Order Placed!</h3>
+      <p>Your order has been submitted. A team member will contact you on Discord soon to complete your purchase. Thank you for choosing CustomBots!</p>
+    </div>
+  </div>
+</div>
+
 <div class="page" id="page-legal">
   <div class="page-bg"></div>
   <div class="pi">
@@ -784,7 +1020,6 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
       <button class="ltab" onclick="switchLTab('privacy',this)">Privacy Policy</button>
     </div>
 
-    
     <div class="lsec active" id="lt-tos">
       <div class="legal-doc">
         <div class="legal-badge">📄 Last updated: May 2025</div>
@@ -960,6 +1195,7 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
     
     <div class="ptabs" style="margin-bottom:28px;">
       <button class="ptab active" onclick="switchPortalTab('tickets',this)">🎟 Tickets</button>
+      <button class="ptab" onclick="switchPortalTab('orders',this)">📦 Orders</button>
     </div>
 
     
@@ -999,6 +1235,20 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
       </div>
     </div>
 
+    <div class="psec" id="portal-orders">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:13px;padding:20px;margin-bottom:18px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+          <div style="font-size:0.88rem;font-weight:700;color:var(--white);">📦 Shop Orders</div>
+          <button onclick="clearOrders()" style="padding:5px 12px;border-radius:6px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);color:#ef4444;font-family:'Inter',sans-serif;font-size:0.75rem;cursor:pointer;">Clear All</button>
+        </div>
+        <div style="font-size:0.78rem;color:var(--muted);">Orders placed through the shop appear here.</div>
+      </div>
+      <div id="portal-order-list">
+        <div style="text-align:center;padding:40px;color:var(--muted);font-size:0.85rem;">No orders yet.</div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -1030,28 +1280,27 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   window.addEventListener('resize', resize);
 
   
-  for(let i=0;i<90;i++){
+  for(let i=0;i<100;i++){
     particles.push({
       x:Math.random()*W, y:Math.random()*H,
-      vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4,
-      r:Math.random()*1.5+0.5,
-      alpha:Math.random()*0.5+0.1
+      vx:(Math.random()-0.5)*0.45, vy:(Math.random()-0.5)*0.45,
+      r:Math.random()*1.8+0.6,
+      alpha:Math.random()*0.35+0.12
     });
   }
 
   function draw(){
     ctx.clearRect(0,0,W,H);
 
-    
     for(let i=0;i<particles.length;i++){
       for(let j=i+1;j<particles.length;j++){
         const dx=particles[i].x-particles[j].x;
         const dy=particles[i].y-particles[j].y;
         const dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<140){
+        if(dist<160){
           ctx.beginPath();
-          ctx.strokeStyle=`rgba(79,110,247,${0.07*(1-dist/140)})`;
-          ctx.lineWidth=0.7;
+          ctx.strokeStyle=`rgba(79,110,247,${0.15*(1-dist/160)})`;
+          ctx.lineWidth=1;
           ctx.moveTo(particles[i].x,particles[i].y);
           ctx.lineTo(particles[j].x,particles[j].y);
           ctx.stroke();
@@ -1059,14 +1308,13 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
       }
     }
 
-    
     particles.forEach(p=>{
       p.x+=p.vx; p.y+=p.vy;
       if(p.x<0||p.x>W) p.vx*=-1;
       if(p.y<0||p.y>H) p.vy*=-1;
       ctx.beginPath();
       ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(79,110,247,${p.alpha})`;
+      ctx.fillStyle=`rgba(90,120,255,${p.alpha})`;
       ctx.fill();
     });
 
@@ -1330,6 +1578,97 @@ function renderTickets() {
       </div>
     </div>`;
   }).join('');
+}
+
+let cart = [];
+let shopOrders = [];
+
+function addToCart(btn, name, price) {
+  const existing = cart.find(i => i.name === name);
+  if (existing) { existing.qty++; } else { cart.push({ name, price, qty: 1 }); }
+  btn.textContent = '✓ Added';
+  btn.classList.add('added');
+  setTimeout(() => { btn.textContent = 'Add to Cart'; btn.classList.remove('added'); }, 1800);
+  updateCartBar();
+}
+
+function updateCartBar() {
+  const bar = document.getElementById('cartBar');
+  const count = document.getElementById('cartCount');
+  const qty = cart.reduce((s, i) => s + i.qty, 0);
+  count.textContent = qty;
+  bar.style.display = qty > 0 ? 'block' : 'none';
+}
+
+function openCart() {
+  renderCartModal();
+  document.getElementById('orderSuccess').style.display = 'none';
+  document.getElementById('checkoutSection').style.display = 'block';
+  document.getElementById('cartModal').classList.add('open');
+}
+
+function closeCart() {
+  document.getElementById('cartModal').classList.remove('open');
+}
+
+function renderCartModal() {
+  const el = document.getElementById('cartItems');
+  const tot = document.getElementById('cartTotal');
+  if (cart.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:24px;color:var(--muted);font-size:0.85rem;">Your cart is empty.</div>';
+    tot.textContent = '$0';
+    return;
+  }
+  el.innerHTML = cart.map((item, idx) => `<div class="cart-line"><span class="cl-name">${item.name}${item.qty > 1 ? ' ×' + item.qty : ''}</span><div style="display:flex;align-items:center;gap:10px;"><span class="cl-price">$${item.price * item.qty}</span><button class="cart-remove" onclick="removeFromCart(${idx})">✕</button></div></div>`).join('');
+  tot.textContent = '$' + cart.reduce((s, i) => s + i.price * i.qty, 0) + ' USD';
+}
+
+function removeFromCart(idx) {
+  cart.splice(idx, 1);
+  renderCartModal();
+  updateCartBar();
+}
+
+function selectPay(el) {
+  document.querySelectorAll('.pay-opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+}
+
+function placeOrder() {
+  const name = document.getElementById('checkoutName').value.trim();
+  const payEl = document.querySelector('.pay-opt.sel');
+  if (!name) { alert('Please enter your Discord username.'); return; }
+  if (!payEl) { alert('Please select a payment method.'); return; }
+  if (cart.length === 0) { alert('Your cart is empty.'); return; }
+  const order = {
+    id: Date.now(),
+    username: name,
+    payment: payEl.textContent,
+    items: [...cart],
+    total: cart.reduce((s, i) => s + i.price * i.qty, 0),
+    date: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+  };
+  shopOrders.unshift(order);
+  renderPortalOrders();
+  cart = [];
+  updateCartBar();
+  document.getElementById('checkoutSection').style.display = 'none';
+  document.getElementById('orderSuccess').style.display = 'block';
+}
+
+function renderPortalOrders() {
+  const el = document.getElementById('portal-order-list');
+  if (!el) return;
+  if (shopOrders.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:40px;color:var(--muted);font-size:0.85rem;">No orders yet.</div>';
+    return;
+  }
+  el.innerHTML = shopOrders.map(o => `<div style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:12px;padding:18px 20px;margin-bottom:10px;"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px;"><div><div style="font-size:0.92rem;font-weight:700;color:var(--white);">@${o.username}</div><div style="font-size:0.72rem;color:var(--muted);margin-top:2px;">${o.date} · ${o.payment}</div></div><div style="display:flex;align-items:center;gap:8px;"><span style="font-size:1rem;font-weight:800;color:var(--white);">$${o.total} USD</span><span style="padding:3px 10px;border-radius:6px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);font-size:0.7rem;font-weight:600;color:#f59e0b;">⏳ Pending</span></div></div><div style="font-size:0.82rem;color:var(--muted);">${o.items.map(i => i.name + (i.qty > 1 ? ' ×' + i.qty : '')).join(', ')}</div></div>`).join('');
+}
+
+function clearOrders() {
+  shopOrders = [];
+  renderPortalOrders();
 }
 </script>
 </body>
