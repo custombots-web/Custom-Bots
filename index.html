@@ -690,9 +690,13 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
     <div class="srow">
       <div class="sc"><div class="sav" id="av-chrome"><span class="si">C</span></div><div><div class="snm">chrome0394_</div><div class="srl rmo">Moderator</div></div></div>
       <div class="sc"><div class="sav" id="av-semendemon"><span class="si">S</span></div><div><div class="snm">semendemon_1</div><div class="srl rmo">Moderator</div></div></div>
+      <div class="sc"><div class="sav" id="av-thomas"><span class="si">T</span></div><div><div class="snm">thomas097640</div><div class="srl rmo">Moderator</div></div></div>
     </div>
     <div class="dl">🎧 <em>Support Team</em></div>
-    <div class="srow"><div class="sc"><div class="sav" id="av-jorwin"><span class="si">J</span></div><div><div class="snm">Jorwin</div><div class="srl rs">Support Team</div></div></div></div>
+    <div class="srow">
+      <div class="sc"><div class="sav" id="av-jorwin"><span class="si">J</span></div><div><div class="snm">Jorwin</div><div class="srl rs">Support Team</div></div></div>
+      <div class="sc"><div class="sav" id="av-thomas2"><span class="si">T</span></div><div><div class="snm">thomas097640</div><div class="srl rs">Support Team</div></div></div>
+    </div>
     <div class="dl">🐛 <em>Bug Finders</em></div>
     <div class="srow"><div class="sc"><div class="sav" id="av-carrkaiden"><span class="si">C</span></div><div><div class="snm">carrkaiden1212</div><div class="srl rb">Bug Finder</div></div></div></div>
   </div>
@@ -928,6 +932,8 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
 
   </div>
 </div>
+
+<div class="page" id="page-docs">
   <div class="page-bg"></div>
   <div class="pi">
     <div class="ph"><div class="slabel">Documentation</div><h1>Docs</h1><p>Everything you need to know about CustomBots.</p></div>
@@ -1351,9 +1357,9 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
     <div class="ptabs" style="margin-bottom:28px;">
       <button class="ptab active" onclick="switchPortalTab('tickets',this)">🎟 Tickets</button>
       <button class="ptab" onclick="switchPortalTab('orders',this)">📦 Orders</button>
+      <button class="ptab" onclick="switchPortalTab('staffmgr',this)">👥 Staff</button>
     </div>
 
-    
     <div class="psec active" id="portal-tickets">
 
       
@@ -1401,6 +1407,39 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
       </div>
       <div id="portal-order-list">
         <div style="text-align:center;padding:40px;color:var(--muted);font-size:0.85rem;">No orders yet.</div>
+      </div>
+    </div>
+
+    <div class="psec" id="portal-staffmgr">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:13px;padding:24px;margin-bottom:20px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);"></div>
+        <div style="font-size:0.88rem;font-weight:700;color:var(--white);margin-bottom:16px;">+ Add New Staff Member</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <label style="font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Username</label>
+            <input id="sm-name" type="text" placeholder="username" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:7px;padding:9px 12px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <label style="font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Role</label>
+            <select id="sm-role" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:7px;padding:9px 12px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;cursor:pointer;">
+              <option value="Lead Developer" style="background:#111;">Lead Developer</option>
+              <option value="Developer" style="background:#111;">Developer</option>
+              <option value="Manager" style="background:#111;">Manager</option>
+              <option value="Moderator" style="background:#111;">Moderator</option>
+              <option value="Support Team" style="background:#111;">Support Team</option>
+              <option value="Bug Finder" style="background:#111;">Bug Finder</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:12px;">
+          <label style="font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Avatar URL</label>
+          <input id="sm-avatar" type="text" placeholder="https://cdn.discordapp.com/avatars/..." style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:7px;padding:9px 12px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+        </div>
+        <button onclick="addPortalStaff()" style="padding:9px 24px;border-radius:8px;background:var(--blue);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:0.87rem;font-weight:600;cursor:pointer;">Add Staff Member</button>
+        <div id="sm-ok" style="display:none;margin-top:10px;padding:10px;border-radius:7px;background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);color:var(--green);font-size:0.82rem;font-weight:600;">✓ Staff member added to the staff page.</div>
+      </div>
+      <div id="portal-staff-list">
+        <div style="text-align:center;padding:40px;color:var(--muted);font-size:0.85rem;">No staff added via portal yet.</div>
       </div>
     </div>
 
@@ -1503,6 +1542,8 @@ const AVATARS={
   jorwin:'https://cdn.discordapp.com/avatars/1353122951293042718/0fdef0ee4ac7394dde0ad6be2aced295.webp?size=128',
   carrkaiden:'https://cdn.discordapp.com/avatars/1092489655888379915/f806cb3814ece7b949dbd6186d87719b.webp?size=128',
   youngbx:'https://cdn.discordapp.com/avatars/1355812549567844423/40b80b7de3a88d0c98ece40ee405f62d.webp?size=128',
+  thomas:'https://cdn.discordapp.com/avatars/1396555598673481758/53b803d011381bbac12e165326e0485d.webp?size=128',
+  thomas2:'https://cdn.discordapp.com/avatars/1396555598673481758/53b803d011381bbac12e165326e0485d.webp?size=128',
 };
 Object.entries(AVATARS).forEach(([k,url])=>tryImg(url,src=>{
   const w=document.getElementById('av-'+k);
@@ -1695,6 +1736,99 @@ function switchPortalTab(id, btn) {
   document.querySelectorAll('#page-devportal .ptab').forEach(b => b.classList.remove('active'));
   document.getElementById('portal-' + id).classList.add('active');
   if (btn) btn.classList.add('active');
+}
+
+const ROLE_COLORS = {
+  'Lead Developer':'#f87171','Developer':'#4f6ef7','Manager':'#a78bfa',
+  'Moderator':'#4ade80','Support Team':'#fbbf24','Bug Finder':'#fb923c'
+};
+const ROLE_SECTIONS = {
+  'Lead Developer':'👑 Lead Developer','Developer':'💻 Developers','Manager':'🏛️ Managers',
+  'Moderator':'🛡️ Moderators','Support Team':'🎧 Support Team','Bug Finder':'🐛 Bug Finders'
+};
+
+let portalStaff = [];
+
+function addPortalStaff() {
+  const name = document.getElementById('sm-name').value.trim();
+  const role = document.getElementById('sm-role').value;
+  const avatarUrl = document.getElementById('sm-avatar').value.trim();
+  if (!name) { alert('Please enter a username.'); return; }
+
+  const member = { name, role, avatarUrl, id: Date.now() };
+  portalStaff.unshift(member);
+
+  const init = name[0].toUpperCase();
+  const color = ROLE_COLORS[role] || '#4f6ef7';
+  const section = ROLE_SECTIONS[role] || role;
+
+  const staffPage = document.getElementById('page-staff');
+  const rows = staffPage.querySelectorAll('.srow');
+  const labels = staffPage.querySelectorAll('.dl');
+  let targetRow = null;
+  labels.forEach((lbl, i) => {
+    if (lbl.textContent.includes(section.replace(/[👑💻🏛️🛡️🎧🐛]\s/,''))) {
+      targetRow = rows[i];
+    }
+  });
+
+  const card = document.createElement('div');
+  card.className = 'sc';
+  card.dataset.portalId = member.id;
+  card.innerHTML = `<div class="sav" id="av-portal-${member.id}"><span class="si">${init}</span></div><div><div class="snm">${name}</div><div class="srl" style="color:${color};">${role}</div></div>`;
+
+  if (targetRow) {
+    targetRow.appendChild(card);
+  }
+
+  if (avatarUrl) {
+    tryImg(avatarUrl, src => {
+      const av = document.getElementById('av-portal-' + member.id);
+      if (av) av.innerHTML = `<img src="${src}" style="width:42px;height:42px;border-radius:50%;object-fit:cover;display:block;">`;
+    });
+  }
+
+  renderPortalStaffList();
+
+  document.getElementById('sm-name').value = '';
+  document.getElementById('sm-avatar').value = '';
+  const ok = document.getElementById('sm-ok');
+  ok.style.display = 'block';
+  setTimeout(() => ok.style.display = 'none', 3500);
+}
+
+function removePortalStaff(id) {
+  portalStaff = portalStaff.filter(s => s.id !== id);
+  const card = document.querySelector(`[data-portal-id="${id}"]`);
+  if (card) card.remove();
+  renderPortalStaffList();
+}
+
+function renderPortalStaffList() {
+  const el = document.getElementById('portal-staff-list');
+  if (!el) return;
+  if (portalStaff.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:40px;color:var(--muted);font-size:0.85rem;">No staff added via portal yet.</div>';
+    return;
+  }
+  el.innerHTML = portalStaff.map(s => {
+    const color = ROLE_COLORS[s.role] || '#4f6ef7';
+    return `<div style="display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:11px;padding:13px 18px;margin-bottom:10px;gap:12px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:38px;height:38px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;" id="sm-list-av-${s.id}"><span style="font-size:0.9rem;font-weight:700;color:var(--muted);">${s.name[0].toUpperCase()}</span></div>
+        <div><div style="font-size:0.88rem;font-weight:600;color:var(--white);">${s.name}</div><div style="font-size:0.7rem;font-weight:500;color:${color};margin-top:2px;">${s.role}</div></div>
+      </div>
+      <button onclick="removePortalStaff(${s.id})" style="padding:5px 12px;border-radius:6px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);color:#ef4444;font-family:'Inter',sans-serif;font-size:0.75rem;cursor:pointer;">Remove</button>
+    </div>`;
+  }).join('');
+  portalStaff.forEach(s => {
+    if (s.avatarUrl) {
+      tryImg(s.avatarUrl, src => {
+        const av = document.getElementById('sm-list-av-' + s.id);
+        if (av) av.innerHTML = `<img src="${src}" style="width:38px;height:38px;border-radius:50%;object-fit:cover;display:block;">`;
+      });
+    }
+  });
 }
 
 let tickets = [];
