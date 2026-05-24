@@ -678,6 +678,7 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
     <div class="srow">
       <div class="sc"><div class="sav" id="av-purpleman"><span class="si">P</span></div><div><div class="snm">PurpleMan</div><div class="srl rd">Developer</div></div></div>
       <div class="sc"><div class="sav" id="av-toes"><span class="si">T</span></div><div><div class="snm">Toes</div><div class="srl rd">Developer</div></div></div>
+      <div class="sc"><div class="sav" id="av-youngbx"><span class="si">Y</span></div><div><div class="snm">youngbx6106</div><div class="srl rd">Developer</div></div></div>
     </div>
     <div class="dl">🏛️ <em>Managers</em></div>
     <div class="srow">
@@ -890,6 +891,21 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
           <div class="port-text">I have made a custom bot for the CustomBots server, other bots for various people, and a fully functional API for CustomBots.</div>
           <div class="port-section-lbl">Contact</div>
           <div><span class="port-contact">💬 purpleman______</span></div>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-card-top">
+          <div class="port-avatar"><img id="portAvYoungbx" src="" alt="youngbx6106"><span id="portInitYoungbx" class="port-init" style="display:none;">Y</span></div>
+          <div><div class="port-name">youngbx6106</div><div class="port-role">Developer</div></div>
+        </div>
+        <div class="port-body">
+          <div class="port-section-lbl">Bio</div>
+          <div class="port-text">I normally make bots for security servers and like roleplay servers.</div>
+          <div class="port-section-lbl">Work</div>
+          <div class="port-text">Check out an example of my work: <a href="https://discord.gg/dX9jRS6jU7" target="_blank" style="color:var(--blue);text-decoration:none;">discord.gg/dX9jRS6jU7</a></div>
+          <div class="port-section-lbl">Contact</div>
+          <div><span class="port-contact">💬 youngbx6106</span></div>
         </div>
       </div>
 
@@ -1486,6 +1502,7 @@ const AVATARS={
   semendemon:'https://cdn.discordapp.com/avatars/903926023471628288/cbcc6be0be8e44a0b7bd7bdc9a01c49b.webp?size=128',
   jorwin:'https://cdn.discordapp.com/avatars/1353122951293042718/0fdef0ee4ac7394dde0ad6be2aced295.webp?size=128',
   carrkaiden:'https://cdn.discordapp.com/avatars/1092489655888379915/f806cb3814ece7b949dbd6186d87719b.webp?size=128',
+  youngbx:'https://cdn.discordapp.com/avatars/1355812549567844423/40b80b7de3a88d0c98ece40ee405f62d.webp?size=128',
 };
 Object.entries(AVATARS).forEach(([k,url])=>tryImg(url,src=>{
   const w=document.getElementById('av-'+k);
@@ -1495,6 +1512,7 @@ Object.entries(AVATARS).forEach(([k,url])=>tryImg(url,src=>{
 const PORT_AVATARS={
   firesuper:{url:'https://cdn.discordapp.com/avatars/1223987586108883025/1b65f08850b79e19fc93da7aafd8e311.webp?size=256',imgIds:['portAvFiresuper','homePortAvFiresuper'],initIds:['portInitFiresuper','homePortInitFiresuper']},
   purpleman:{url:'https://cdn.discordapp.com/avatars/1344761188646387735/77e44e78ab7a3021286dde827eee08c3.webp?size=256',imgIds:['portAvPurpleman','homePortAvPurpleman'],initIds:['portInitPurpleman','homePortInitPurpleman']},
+  youngbx:{url:'https://cdn.discordapp.com/avatars/1355812549567844423/40b80b7de3a88d0c98ece40ee405f62d.webp?size=256',imgIds:['portAvYoungbx'],initIds:['portInitYoungbx']},
 };
 Object.values(PORT_AVATARS).forEach(({url,imgIds,initIds})=>{
   tryImg(url,src=>{
