@@ -673,32 +673,33 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   <div class="pi">
     <div class="ph"><div class="slabel">Team</div><h1>Meet the Staff</h1><p>The people keeping CustomBots running around the clock.</p></div>
     <div class="dl">👑 <em>Lead Developer</em></div>
-    <div class="srow"><div class="sc lead"><div class="sav" id="av-firesuper"><span class="si">F</span></div><div><div class="snm">FIreSuper</div><div class="srl rl">Lead Developer</div></div></div></div>
+    <div class="srow" data-role="Lead Developer"><div class="sc lead"><div class="sav" id="av-firesuper"><span class="si">F</span></div><div><div class="snm">FIreSuper</div><div class="srl rl">Lead Developer</div></div></div></div>
     <div class="dl">💻 <em>Developers</em></div>
-    <div class="srow">
+    <div class="srow" data-role="Developer">
       <div class="sc"><div class="sav" id="av-purpleman"><span class="si">P</span></div><div><div class="snm">PurpleMan</div><div class="srl rd">Developer</div></div></div>
       <div class="sc"><div class="sav" id="av-toes"><span class="si">T</span></div><div><div class="snm">Toes</div><div class="srl rd">Developer</div></div></div>
       <div class="sc"><div class="sav" id="av-youngbx"><span class="si">Y</span></div><div><div class="snm">youngbx6106</div><div class="srl rd">Developer</div></div></div>
     </div>
     <div class="dl">🏛️ <em>Managers</em></div>
-    <div class="srow">
+    <div class="srow" data-role="Manager">
       <div class="sc"><div class="sav" id="av-icyyxn"><span class="si">I</span></div><div><div class="snm">icyyxn</div><div class="srl rm">Manager</div></div></div>
       <div class="sc"><div class="sav" id="av-yasir"><span class="si">Y</span></div><div><div class="snm">Yasir</div><div class="srl rm">Manager</div></div></div>
       <div class="sc"><div class="sav" id="av-zynthzz"><span class="si">Z</span></div><div><div class="snm">zynthzz</div><div class="srl rm">Manager</div></div></div>
     </div>
     <div class="dl">🛡️ <em>Moderators</em></div>
-    <div class="srow">
+    <div class="srow" data-role="Moderator">
       <div class="sc"><div class="sav" id="av-chrome"><span class="si">C</span></div><div><div class="snm">chrome0394_</div><div class="srl rmo">Moderator</div></div></div>
       <div class="sc"><div class="sav" id="av-semendemon"><span class="si">S</span></div><div><div class="snm">semendemon_1</div><div class="srl rmo">Moderator</div></div></div>
       <div class="sc"><div class="sav" id="av-thomas"><span class="si">T</span></div><div><div class="snm">thomas097640</div><div class="srl rmo">Moderator</div></div></div>
+      <div class="sc"><div class="sav" id="av-connor"><span class="si">C</span></div><div><div class="snm">connor_b22177</div><div class="srl rmo">Moderator</div></div></div>
     </div>
     <div class="dl">🎧 <em>Support Team</em></div>
-    <div class="srow">
+    <div class="srow" data-role="Support Team">
       <div class="sc"><div class="sav" id="av-jorwin"><span class="si">J</span></div><div><div class="snm">Jorwin</div><div class="srl rs">Support Team</div></div></div>
       <div class="sc"><div class="sav" id="av-thomas2"><span class="si">T</span></div><div><div class="snm">thomas097640</div><div class="srl rs">Support Team</div></div></div>
     </div>
     <div class="dl">🐛 <em>Bug Finders</em></div>
-    <div class="srow"><div class="sc"><div class="sav" id="av-carrkaiden"><span class="si">C</span></div><div><div class="snm">carrkaiden1212</div><div class="srl rb">Bug Finder</div></div></div></div>
+    <div class="srow" data-role="Bug Finder"><div class="sc"><div class="sav" id="av-carrkaiden"><span class="si">C</span></div><div><div class="snm">carrkaiden1212</div><div class="srl rb">Bug Finder</div></div></div></div>
   </div>
 </div>
 
@@ -1544,6 +1545,7 @@ const AVATARS={
   youngbx:'https://cdn.discordapp.com/avatars/1355812549567844423/40b80b7de3a88d0c98ece40ee405f62d.webp?size=128',
   thomas:'https://cdn.discordapp.com/avatars/1396555598673481758/53b803d011381bbac12e165326e0485d.webp?size=128',
   thomas2:'https://cdn.discordapp.com/avatars/1396555598673481758/53b803d011381bbac12e165326e0485d.webp?size=128',
+  connor:'https://cdn.discordapp.com/avatars/1055961844772261968/05923b8eab5edfce93e28e71e040495f.webp?size=128',
 };
 Object.entries(AVATARS).forEach(([k,url])=>tryImg(url,src=>{
   const w=document.getElementById('av-'+k);
@@ -1760,31 +1762,22 @@ function addPortalStaff() {
 
   const init = name[0].toUpperCase();
   const color = ROLE_COLORS[role] || '#4f6ef7';
-  const section = ROLE_SECTIONS[role] || role;
 
-  const staffPage = document.getElementById('page-staff');
-  const rows = staffPage.querySelectorAll('.srow');
-  const labels = staffPage.querySelectorAll('.dl');
-  let targetRow = null;
-  labels.forEach((lbl, i) => {
-    if (lbl.textContent.includes(section.replace(/[👑💻🏛️🛡️🎧🐛]\s/,''))) {
-      targetRow = rows[i];
-    }
-  });
+  const targetRow = document.querySelector('#page-staff .srow[data-role="' + role + '"]');
 
   const card = document.createElement('div');
   card.className = 'sc';
   card.dataset.portalId = member.id;
-  card.innerHTML = `<div class="sav" id="av-portal-${member.id}"><span class="si">${init}</span></div><div><div class="snm">${name}</div><div class="srl" style="color:${color};">${role}</div></div>`;
+  card.innerHTML = '<div class="sav" id="av-portal-' + member.id + '"><span class="si">' + init + '</span></div><div><div class="snm">' + name + '</div><div class="srl" style="color:' + color + ';">' + role + '</div></div>';
 
   if (targetRow) {
     targetRow.appendChild(card);
   }
 
   if (avatarUrl) {
-    tryImg(avatarUrl, src => {
+    tryImg(avatarUrl, function(src) {
       const av = document.getElementById('av-portal-' + member.id);
-      if (av) av.innerHTML = `<img src="${src}" style="width:42px;height:42px;border-radius:50%;object-fit:cover;display:block;">`;
+      if (av) av.innerHTML = '<img src="' + src + '" style="width:42px;height:42px;border-radius:50%;object-fit:cover;display:block;">';
     });
   }
 
@@ -1794,7 +1787,7 @@ function addPortalStaff() {
   document.getElementById('sm-avatar').value = '';
   const ok = document.getElementById('sm-ok');
   ok.style.display = 'block';
-  setTimeout(() => ok.style.display = 'none', 3500);
+  setTimeout(function() { ok.style.display = 'none'; }, 3500);
 }
 
 function removePortalStaff(id) {
