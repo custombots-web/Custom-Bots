@@ -510,10 +510,10 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
   </div>
   <div class="nav-center" id="navCenter">
     <button class="active" onclick="showPage('home',this)">Home</button>
-    <button onclick="showPage('prices',this)">Prices</button>
     <button onclick="showPage('staff',this)">Staff</button>
     <button onclick="showPage('coding',this)">Coding Help</button>
     <button onclick="showPage('dev',this)">Be a Dev</button>
+    <button onclick="showPage('apply',this)">Apply to Staff</button>
     <button onclick="showPage('payment',this)">Payment</button>
     <button onclick="showPage('status',this)">Status</button>
     <button onclick="showPage('docs',this)">Docs</button>
@@ -535,10 +535,10 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <button onclick="showPage('home',this);toggleMenu()">Home</button>
-  <button onclick="showPage('prices',this);toggleMenu()">Prices</button>
   <button onclick="showPage('staff',this);toggleMenu()">Staff</button>
   <button onclick="showPage('coding',this);toggleMenu()">Coding Help</button>
   <button onclick="showPage('dev',this);toggleMenu()">Be a Dev</button>
+  <button onclick="showPage('apply',this);toggleMenu()">Apply to Staff</button>
   <button onclick="showPage('payment',this);toggleMenu()">Payment</button>
   <button onclick="showPage('status',this);toggleMenu()">Status</button>
   <button onclick="showPage('docs',this);toggleMenu()">Docs</button>
@@ -686,9 +686,12 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
       <div class="sc"><div class="sav" id="av-yasir"><span class="si">Y</span></div><div><div class="snm">Yasir</div><div class="srl rm">Manager</div></div></div>
       <div class="sc"><div class="sav" id="av-zynthzz"><span class="si">Z</span></div><div><div class="snm">zynthzz</div><div class="srl rm">Manager</div></div></div>
     </div>
+    <div class="dl">🔱 <em>Lead Moderator</em></div>
+    <div class="srow" data-role="Lead Moderator">
+      <div class="sc"><div class="sav" id="av-chrome"><span class="si">C</span></div><div><div class="snm">chrome0394_</div><div class="srl" style="color:#38bdf8;">Lead Moderator</div></div></div>
+    </div>
     <div class="dl">🛡️ <em>Moderators</em></div>
     <div class="srow" data-role="Moderator">
-      <div class="sc"><div class="sav" id="av-chrome"><span class="si">C</span></div><div><div class="snm">chrome0394_</div><div class="srl rmo">Moderator</div></div></div>
       <div class="sc"><div class="sav" id="av-semendemon"><span class="si">S</span></div><div><div class="snm">semendemon_1</div><div class="srl rmo">Moderator</div></div></div>
       <div class="sc"><div class="sav" id="av-thomas"><span class="si">T</span></div><div><div class="snm">thomas097640</div><div class="srl rmo">Moderator</div></div></div>
       <div class="sc"><div class="sav" id="av-connor"><span class="si">C</span></div><div><div class="snm">connor_b22177</div><div class="srl rmo">Moderator</div></div></div>
@@ -855,6 +858,21 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
       </div>
     </div>
 
+    <div class="status-card" style="border-color:rgba(34,197,94,0.2);">
+      <div class="status-header" onclick="toggleStatus('s5')">
+        <div class="sh-left"><span class="sh-icon">🛡️</span><div><div class="sh-name">Security Bot — Features</div><div class="sh-desc">All active protection modules</div></div></div>
+        <span class="op-badge operational"><span class="op-dot"></span>All Systems Active</span>
+      </div>
+      <div class="status-body" id="s5" style="display:none;flex-direction:column;gap:0;">
+        <div style="overflow:hidden;position:relative;padding:16px 0 8px;">
+          <div style="display:flex;gap:12px;width:max-content;animation:tick1 22s linear infinite;" id="secTicker1"></div>
+        </div>
+        <div style="overflow:hidden;position:relative;padding:4px 0 16px;">
+          <div style="display:flex;gap:12px;width:max-content;animation:tick2 28s linear infinite;" id="secTicker2"></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -943,6 +961,7 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
         <h3>Contents</h3>
         <button class="doc-link active" onclick="showDoc('buy',this)">How to Buy a Bot</button>
         <button class="doc-link" onclick="showDoc('host',this)">How to Become a Hoster</button>
+        <button class="doc-link" onclick="showDoc('server',this)">How to Set Up Your Own Server</button>
       </div>
       <div class="docs-content">
         <div class="doc-article active" id="doc-buy">
@@ -975,6 +994,21 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
               <p>You must be able to host on a device that can run code — PC, self-hosted servers, Raspberry Pi's, etc. You will be paid depending on how much you host. If you would like to be a hoster, please make a support ticket.</p>
             </div>
             <a class="btn-p" href="https://discord.gg/zhNMDFdqpQ" target="_blank" style="display:inline-flex;margin-top:14px;font-size:0.85rem;padding:9px 20px;">Apply as Hoster →</a>
+          </div>
+        </div>
+        <div class="doc-article" id="doc-server">
+          <div class="doc-article-inner">
+            <h2>🖥️ How to Set Up Your Own Server</h2>
+            <p>To set up your own server, start by finding a suitable computer or mini-computer. An old laptop works perfectly fine for this. You don't need anything powerful to get started.</p>
+            <p>Once you have a device, follow these steps:</p>
+            <ul>
+              <li>Install any type of <strong>Linux</strong> on the device — Ubuntu is a good beginner-friendly choice</li>
+              <li>Set up any applications or services you want to run on it</li>
+              <li>Make sure the device stays powered on and connected to the internet</li>
+              <li>Configure any port forwarding on your router if you need the server to be accessible externally</li>
+            </ul>
+            <p>If you've set it up and are looking to become a hoster for CustomBots, check out the <strong>How to Become a Hoster</strong> article in this docs page.</p>
+            <button class="expand-btn" onclick="showDoc('host',document.querySelectorAll('.doc-link')[1])" style="margin-top:4px;">How to Become a Hoster →</button>
           </div>
         </div>
       </div>
@@ -1091,6 +1125,61 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
         <div class="shop-item-footer">
           <div class="shop-item-price">$5 <span>USD/mo</span></div>
           <button class="add-to-cart" onclick="addToCart(this,'Bot Hosting',5)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">🎨</div>
+          <div class="shop-item-name">Design Bot</div>
+          <div class="shop-item-desc">A fully custom designed bot with your branding, colors, logo and style. Looks completely unique to your server.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$8 <span>USD</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'Design Bot',8)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">🛡️</div>
+          <div class="shop-item-name">Custom Branding via Security Bot</div>
+          <div class="shop-item-desc">Add your server's custom branding directly onto the Security Bot. Your logo, name and colors integrated.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$5 <span>USD</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'Custom Branding via Security Bot',5)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">🎮</div>
+          <div class="shop-item-name">Better FPS / Less Lag</div>
+          <div class="shop-item-desc">Optimization service to improve your game performance and reduce lag. Works for most popular games.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$3 <span>USD</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'Better FPS / Less Lag',3)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">🌐</div>
+          <div class="shop-item-name">Custom Website</div>
+          <div class="shop-item-desc">A fully custom website built for your server or project. Domain not provided — hosting and code only.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$5 <span>USD</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'Custom Website',5)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="shop-item">
+        <div class="shop-item-header">
+          <div class="shop-item-icon">📚</div>
+          <div class="shop-item-name">Coding Tutorial</div>
+          <div class="shop-item-desc">One-on-one coding tutorial in Python, JavaScript, Lua or HTML. Learn at your own pace with a real developer.</div>
+        </div>
+        <div class="shop-item-footer">
+          <div class="shop-item-price">$4 <span>USD</span></div>
+          <button class="add-to-cart" onclick="addToCart(this,'Coding Tutorial',4)">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -1359,6 +1448,7 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
       <button class="ptab active" onclick="switchPortalTab('tickets',this)">🎟 Tickets</button>
       <button class="ptab" onclick="switchPortalTab('orders',this)">📦 Orders</button>
       <button class="ptab" onclick="switchPortalTab('staffmgr',this)">👥 Staff</button>
+      <button class="ptab" onclick="switchPortalTab('applications',this)">📋 Applications</button>
     </div>
 
     <div class="psec active" id="portal-tickets">
@@ -1426,6 +1516,7 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
               <option value="Lead Developer" style="background:#111;">Lead Developer</option>
               <option value="Developer" style="background:#111;">Developer</option>
               <option value="Manager" style="background:#111;">Manager</option>
+              <option value="Lead Moderator" style="background:#111;">Lead Moderator</option>
               <option value="Moderator" style="background:#111;">Moderator</option>
               <option value="Support Team" style="background:#111;">Support Team</option>
               <option value="Bug Finder" style="background:#111;">Bug Finder</option>
@@ -1444,10 +1535,119 @@ footer{border-top:1px solid var(--border);padding:clamp(20px,4vw,28px) clamp(16p
       </div>
     </div>
 
+    <div class="psec" id="portal-applications">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:13px;padding:20px;margin-bottom:18px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+          <div style="font-size:0.88rem;font-weight:700;color:var(--white);">📋 Staff Applications</div>
+          <button onclick="clearApplications()" style="padding:5px 12px;border-radius:6px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);color:#ef4444;font-family:'Inter',sans-serif;font-size:0.75rem;cursor:pointer;">Clear All</button>
+        </div>
+        <div style="font-size:0.78rem;color:var(--muted);">Applications submitted through the Apply to Staff page appear here.</div>
+      </div>
+      <div id="application-list">
+        <div style="text-align:center;padding:40px;color:var(--muted);font-size:0.85rem;">No applications yet.</div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<footer>
+<div class="page" id="page-apply">
+  <div class="page-bg"></div>
+  <div class="pi">
+    <div class="ph">
+      <div class="slabel">Join the Team</div>
+      <h1>Apply to Staff</h1>
+      <p>Choose a role below and fill out the application. We will review it and get back to you.</p>
+    </div>
+
+    <div style="display:flex;gap:14px;margin-bottom:32px;flex-wrap:wrap;">
+      <button onclick="selectApplyRole('support',this)" style="flex:1;min-width:160px;padding:18px 20px;border-radius:12px;background:rgba(251,191,36,0.07);border:2px solid rgba(251,191,36,0.25);color:#fbbf24;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:700;cursor:pointer;transition:all 0.15s;text-align:left;">
+        🎧 Support Team<br><span style="font-size:0.75rem;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Help members with their issues</span>
+      </button>
+      <button onclick="selectApplyRole('moderator',this)" style="flex:1;min-width:160px;padding:18px 20px;border-radius:12px;background:rgba(74,222,128,0.07);border:2px solid rgba(74,222,128,0.25);color:#4ade80;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:700;cursor:pointer;transition:all 0.15s;text-align:left;">
+        🛡️ Moderator<br><span style="font-size:0.75rem;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Maintain server rules and order</span>
+      </button>
+    </div>
+
+    <div id="apply-form-support" style="display:none;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#fbbf24,transparent);"></div>
+        <div style="font-size:0.97rem;font-weight:700;color:var(--white);margin-bottom:4px;">🎧 Support Team Application</div>
+        <div style="font-size:0.82rem;color:var(--muted);margin-bottom:22px;">Answer all questions honestly. Incomplete applications will not be reviewed.</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Discord Username</label>
+            <input id="sup-user" type="text" placeholder="your_username" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">1️⃣ What are your hobbies?</label>
+            <textarea id="sup-q1" placeholder="Tell us about your hobbies…" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;resize:vertical;min-height:70px;"></textarea>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">2️⃣ Do you have any past experience? (Proof)</label>
+            <textarea id="sup-q2" placeholder="Describe your experience and provide any links or proof…" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;resize:vertical;min-height:70px;"></textarea>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">3️⃣ How active are you on a scale of 1–10?</label>
+            <input id="sup-q3" type="text" placeholder="e.g. 8" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">4️⃣ Do you understand you must be active?</label>
+            <input id="sup-q4" type="text" placeholder="Yes / No" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">5️⃣ Do you understand to use professionalism?</label>
+            <input id="sup-q5" type="text" placeholder="Yes / No" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+        </div>
+        <button onclick="submitApplication('support')" style="margin-top:20px;padding:11px 30px;border-radius:9px;background:#d97706;border:none;color:#fff;font-family:'Inter',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.15s;box-shadow:0 4px 16px rgba(217,119,6,0.3);">Submit Application</button>
+        <div id="sup-ok" style="display:none;margin-top:12px;padding:11px;border-radius:8px;background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);color:#22c55e;font-size:0.83rem;font-weight:600;">✓ Application submitted! We will review it and reach out on Discord.</div>
+      </div>
+    </div>
+
+    <div id="apply-form-moderator" style="display:none;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#4ade80,transparent);"></div>
+        <div style="font-size:0.97rem;font-weight:700;color:var(--white);margin-bottom:4px;">🛡️ Moderator Application</div>
+        <div style="font-size:0.82rem;color:var(--muted);margin-bottom:22px;">Answer all questions honestly. Incomplete applications will not be reviewed.</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Discord Username</label>
+            <input id="mod-user" type="text" placeholder="your_username" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">1️⃣ What are your interests?</label>
+            <textarea id="mod-q1" placeholder="Tell us about your interests…" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;resize:vertical;min-height:70px;"></textarea>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">2️⃣ Do you have any past experience? (Proof)</label>
+            <textarea id="mod-q2" placeholder="Describe your experience and provide any links or proof…" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;resize:vertical;min-height:70px;"></textarea>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">3️⃣ How active are you on a scale of 1–10?</label>
+            <input id="mod-q3" type="text" placeholder="e.g. 8" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">4️⃣ Do you know the rules of the server?</label>
+            <input id="mod-q4" type="text" placeholder="Yes / No" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">5️⃣ Do you understand you only communicate with members in tickets?</label>
+            <input id="mod-q5" type="text" placeholder="Yes / No" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <label style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">6️⃣ Do you understand to use professionalism?</label>
+            <input id="mod-q6" type="text" placeholder="Yes / No" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:10px 13px;color:var(--white);font-family:'Inter',sans-serif;font-size:0.87rem;outline:none;width:100%;">
+          </div>
+        </div>
+        <button onclick="submitApplication('moderator')" style="margin-top:20px;padding:11px 30px;border-radius:9px;background:#16a34a;border:none;color:#fff;font-family:'Inter',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.15s;box-shadow:0 4px 16px rgba(22,163,74,0.3);">Submit Application</button>
+        <div id="mod-ok" style="display:none;margin-top:12px;padding:11px;border-radius:8px;background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);color:#22c55e;font-size:0.83rem;font-weight:600;">✓ Application submitted! We will review it and reach out on Discord.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
   <div class="foot-brand">
     <img id="footLogo" src="" alt="">
     <span class="foot-copy">© 2026 CustomBots. All rights reserved.</span>
@@ -1742,11 +1942,11 @@ function switchPortalTab(id, btn) {
 
 const ROLE_COLORS = {
   'Lead Developer':'#f87171','Developer':'#4f6ef7','Manager':'#a78bfa',
-  'Moderator':'#4ade80','Support Team':'#fbbf24','Bug Finder':'#fb923c'
+  'Lead Moderator':'#38bdf8','Moderator':'#4ade80','Support Team':'#fbbf24','Bug Finder':'#fb923c'
 };
 const ROLE_SECTIONS = {
-  'Lead Developer':'👑 Lead Developer','Developer':'💻 Developers','Manager':'🏛️ Managers',
-  'Moderator':'🛡️ Moderators','Support Team':'🎧 Support Team','Bug Finder':'🐛 Bug Finders'
+  'Lead Developer':'Lead Developer','Developer':'Developer','Manager':'Manager',
+  'Lead Moderator':'Lead Moderator','Moderator':'Moderator','Support Team':'Support Team','Bug Finder':'Bug Finder'
 };
 
 let portalStaff = [];
@@ -1995,6 +2195,130 @@ function renderPortalOrders() {
 function clearOrders() {
   shopOrders = [];
   renderPortalOrders();
+}
+
+const SEC_FEATURES_ROW1 = [
+  {name:'Anti Link',desc:'Blocks malicious links automatically',status:'active'},
+  {name:'Anti Invite',desc:'Removes Discord server invites',status:'active'},
+  {name:'Anti Raid',desc:'Detects and stops raid attempts',status:'active'},
+  {name:'Anti Spam',desc:'Prevents message flooding',status:'active'},
+  {name:'Anti Ping',desc:'Limits mass pinging of roles',status:'active'},
+  {name:'Anti Swear',desc:'Filters profanity in messages',status:'active'},
+  {name:'Anti Phishing',desc:'Blocks known phishing URLs',status:'active'},
+  {name:'Anti Nuke',desc:'Prevents server destruction attacks',status:'active'},
+];
+const SEC_FEATURES_ROW2 = [
+  {name:'Anti Bot',desc:'Restricts unauthorized bot joins',status:'maintenance'},
+  {name:'VPN Detection',desc:'Flags VPN and proxy connections',status:'active'},
+  {name:'Staff Auth',desc:'Two-factor staff verification',status:'active'},
+  {name:'Welcome Cards',desc:'Custom image welcome messages',status:'active'},
+  {name:'Role Hierarchy',desc:'Enforces role permission levels',status:'active'},
+  {name:'Token Detection',desc:'Scans for leaked bot tokens',status:'active'},
+  {name:'Mass DM Guard',desc:'Stops mass DM spam campaigns',status:'active'},
+];
+
+function buildSecTicker(elId, items) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  [...items,...items].forEach(f => {
+    const isMaint = f.status === 'maintenance';
+    const d = document.createElement('div');
+    d.style.cssText = 'display:inline-flex;flex-direction:column;gap:4px;padding:10px 16px;border-radius:10px;background:' + (isMaint ? 'rgba(245,158,11,0.07)' : 'rgba(34,197,94,0.07)') + ';border:1px solid ' + (isMaint ? 'rgba(245,158,11,0.2)' : 'rgba(34,197,94,0.2)') + ';min-width:160px;flex-shrink:0;';
+    d.innerHTML = '<div style="display:flex;align-items:center;gap:7px;"><span style="font-size:0.82rem;font-weight:700;color:#fff;">' + f.name + '</span><span style="display:flex;align-items:center;gap:4px;font-size:0.66rem;font-weight:600;color:' + (isMaint ? '#f59e0b' : '#22c55e') + ';">' + (isMaint ? '🔧 Maintenance' : '✅ Active') + '</span></div><div style="font-size:0.72rem;color:var(--muted);">' + f.desc + '</div>';
+    el.appendChild(d);
+  });
+}
+
+buildSecTicker('secTicker1', SEC_FEATURES_ROW1);
+buildSecTicker('secTicker2', SEC_FEATURES_ROW2);
+
+let staffApplications = [];
+
+function selectApplyRole(role, btn) {
+  document.querySelectorAll('#page-apply > .pi > div[style*="display:flex;gap"]~ div').forEach(function(el){el.style.display='none';});
+  document.getElementById('apply-form-support').style.display = 'none';
+  document.getElementById('apply-form-moderator').style.display = 'none';
+  document.getElementById('apply-form-' + role).style.display = 'block';
+  document.getElementById('apply-form-' + role).scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function submitApplication(type) {
+  let username, answers, label;
+  if (type === 'support') {
+    username = document.getElementById('sup-user').value.trim();
+    if (!username) { alert('Please enter your Discord username.'); return; }
+    answers = [
+      {q:'What are your hobbies?', a: document.getElementById('sup-q1').value.trim()},
+      {q:'Past experience (Proof)', a: document.getElementById('sup-q2').value.trim()},
+      {q:'Activity scale 1-10', a: document.getElementById('sup-q3').value.trim()},
+      {q:'Understand must be active?', a: document.getElementById('sup-q4').value.trim()},
+      {q:'Understand professionalism?', a: document.getElementById('sup-q5').value.trim()},
+    ];
+    label = '🎧 Support Team';
+    ['sup-user','sup-q1','sup-q2','sup-q3','sup-q4','sup-q5'].forEach(function(id){document.getElementById(id).value='';});
+    document.getElementById('sup-ok').style.display = 'block';
+    setTimeout(function(){document.getElementById('sup-ok').style.display='none';}, 4000);
+  } else {
+    username = document.getElementById('mod-user').value.trim();
+    if (!username) { alert('Please enter your Discord username.'); return; }
+    answers = [
+      {q:'What are your interests?', a: document.getElementById('mod-q1').value.trim()},
+      {q:'Past experience (Proof)', a: document.getElementById('mod-q2').value.trim()},
+      {q:'Activity scale 1-10', a: document.getElementById('mod-q3').value.trim()},
+      {q:'Know server rules?', a: document.getElementById('mod-q4').value.trim()},
+      {q:'Only communicate in tickets?', a: document.getElementById('mod-q5').value.trim()},
+      {q:'Understand professionalism?', a: document.getElementById('mod-q6').value.trim()},
+    ];
+    label = '🛡️ Moderator';
+    ['mod-user','mod-q1','mod-q2','mod-q3','mod-q4','mod-q5','mod-q6'].forEach(function(id){document.getElementById(id).value='';});
+    document.getElementById('mod-ok').style.display = 'block';
+    setTimeout(function(){document.getElementById('mod-ok').style.display='none';}, 4000);
+  }
+
+  const app = {
+    id: Date.now(),
+    username: username,
+    role: label,
+    answers: answers,
+    date: new Date().toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric'})
+  };
+  staffApplications.unshift(app);
+  renderApplications();
+}
+
+function renderApplications() {
+  const el = document.getElementById('application-list');
+  if (!el) return;
+  if (staffApplications.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:40px;color:var(--muted);font-size:0.85rem;">No applications yet.</div>';
+    return;
+  }
+  el.innerHTML = staffApplications.map(function(app) {
+    const isSupport = app.role.includes('Support');
+    const col = isSupport ? '#fbbf24' : '#4ade80';
+    const qa = app.answers.map(function(a){
+      return '<div style="margin-bottom:8px;"><div style="font-size:0.72rem;font-weight:600;color:var(--muted);margin-bottom:2px;">' + a.q + '</div><div style="font-size:0.84rem;color:var(--text);">' + (a.a || '—') + '</div></div>';
+    }).join('');
+    return '<div style="background:var(--card);border:1px solid var(--border);border-left:3px solid ' + col + ';border-radius:12px;padding:20px;margin-bottom:12px;">' +
+      '<div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">' +
+        '<div><div style="font-size:0.95rem;font-weight:700;color:var(--white);">@' + app.username + '</div>' +
+        '<div style="font-size:0.72rem;margin-top:2px;color:' + col + ';font-weight:600;">' + app.role + '</div></div>' +
+        '<div style="display:flex;align-items:center;gap:8px;">' +
+          '<span style="font-size:0.72rem;color:var(--muted);">' + app.date + '</span>' +
+          '<button onclick="deleteApplication(' + app.id + ')" style="padding:4px 10px;border-radius:6px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);color:#ef4444;font-family:Inter,sans-serif;font-size:0.72rem;cursor:pointer;">Delete</button>' +
+        '</div>' +
+      '</div>' + qa + '</div>';
+  }).join('');
+}
+
+function deleteApplication(id) {
+  staffApplications = staffApplications.filter(function(a){return a.id !== id;});
+  renderApplications();
+}
+
+function clearApplications() {
+  staffApplications = [];
+  renderApplications();
 }
 </script>
 </body>
